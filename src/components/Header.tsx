@@ -1,7 +1,8 @@
-﻿import { useLayoutEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router';
 import gsap from 'gsap';
 import { MagnifierIcon, BasketIcon } from '@/components/icons';
+import { assetUrl } from '@/lib/asset';
 
 /**
  * Global header.
@@ -87,9 +88,9 @@ export default function Header() {
       }`}
     >
       {/* Logo */}
-      <Link to="/" aria-label="Pringles Wavy â€” home" className="shrink-0" data-header-item>
+      <Link to="/" aria-label="Pringles Wavy — home" className="shrink-0" data-header-item>
         <img
-          src="/logo-pringles.png"
+          src={assetUrl('/logo-pringles.png')}
           alt="Pringles"
           className="w-[92px] max-w-none object-contain"
           width={92}

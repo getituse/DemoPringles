@@ -1,4 +1,4 @@
-﻿import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import type { RefObject } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { useTexture } from '@react-three/drei';
@@ -9,6 +9,7 @@ import { THEMES } from '@/theme/themes';
 import { createChipGeometry } from './chipGeometry';
 import { useStageScale } from './stage';
 import type { HeroInteraction } from './HeroCanScene';
+import { assetUrl } from '@/lib/asset';
 
 /**
  * Floating 3D chips around the hero can â€” REAL geometry,
@@ -27,7 +28,7 @@ import type { HeroInteraction } from './HeroCanScene';
 
 const COUNT_DESKTOP = 11;
 const COUNT_MOBILE = 6; // responsive perf scaling
-const CHIP_TEXTURE_URL = '/chip-crisps.png';
+const CHIP_TEXTURE_URL = assetUrl('/chip-crisps.png');
 
 /** [x, y, z, scale] â€” arc above/around the can in design units. */
 const LAYOUT: ReadonlyArray<readonly [number, number, number, number]> = [

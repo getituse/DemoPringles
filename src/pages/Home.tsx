@@ -14,6 +14,7 @@ import {
   HeartIcon,
   FeatherIcon,
 } from '@/components/icons';
+import { assetUrl } from '@/lib/asset';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -678,7 +679,7 @@ export default function Home() {
               >
                 <span className="flex h-14 w-14 items-center justify-center rounded-full shadow-[var(--shadow-soft)] ring-[3px] ring-[var(--brand-amber)] transition-all duration-500 group-hover:rotate-[25deg] group-hover:scale-[1.06] group-hover:ring-[var(--flavor-main)] group-hover:shadow-[0_0_0_6px_var(--flavor-glow)]">
                   <img
-                    src="/smartlabel-preview.png"
+                    src={assetUrl('/smartlabel-preview.png')}
                     alt="Wavy crisp close-up"
                     className="h-full w-full rounded-full object-cover"
                     width={56}
@@ -712,7 +713,7 @@ export default function Home() {
               className="absolute right-[4%] top-[56%] z-[1] w-[130px]"
             >
               <img
-                src="/jalapeno-slices.png"
+                src={assetUrl('/jalapeno-slices.png')}
                 alt=""
                 width={130}
                 height={130}
@@ -733,7 +734,7 @@ export default function Home() {
               className="absolute left-[2%] top-[44%] z-[3] w-[150px]"
             >
               <img
-                src="/potato-slices.png"
+                src={assetUrl('/potato-slices.png')}
                 alt=""
                 width={150}
                 height={150}
@@ -748,7 +749,7 @@ export default function Home() {
               className="absolute bottom-[6%] left-[16%] z-[3] w-[110px]"
             >
               <img
-                src="/sauce-bowl.png"
+                src={assetUrl('/sauce-bowl.png')}
                 alt=""
                 width={110}
                 height={110}
@@ -787,7 +788,7 @@ export default function Home() {
           className="absolute bottom-4 right-6 z-[5] w-[110px]"
         >
           <img
-            src="/pistachio-scatter.png"
+            src={assetUrl('/pistachio-scatter.png')}
             alt=""
             width={110}
             height={82}
@@ -816,7 +817,7 @@ export default function Home() {
           className="absolute left-[46%] top-[10%] z-[1] w-[70px] lg:top-[16%]"
         >
           <img
-            src="/chip-crisps.png"
+            src={assetUrl('/chip-crisps.png')}
             alt=""
             width={90}
             height={90}
@@ -829,7 +830,7 @@ export default function Home() {
           className="absolute bottom-[10%] right-[4%] z-[1] w-[120px]"
         >
           <img
-            src="/pistachio-scatter.png"
+            src={assetUrl('/pistachio-scatter.png')}
             alt=""
             width={120}
             height={90}
@@ -845,7 +846,7 @@ export default function Home() {
             <SelectorArc />
             {/* white disc logo */}
             <img
-              src="/logo-pringles.png"
+              src={assetUrl('/logo-pringles.png')}
               alt=""
               width={150}
               height={150}
@@ -864,7 +865,7 @@ export default function Home() {
               className="absolute bottom-[64px] left-[clamp(8px,4vw,60px)] z-[4] ml-[330px] w-[110px]"
             >
               <img
-                src="/hand-pointer.png"
+                src={assetUrl('/hand-pointer.png')}
                 alt=""
                 width={110}
                 height={138}
@@ -884,7 +885,7 @@ export default function Home() {
               <div data-parallax="0.3" className="relative">
                 <div className="h-44 w-44 overflow-hidden rounded-full border-4 border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.35)] ring-4 ring-[var(--flavor-main)]/30 transition-transform duration-300 hover:scale-105 sm:h-52 sm:w-52 lg:h-60 lg:w-60">
                   <img
-                    src="/reviewer-avatar.jpg"
+                    src={assetUrl('/reviewer-avatar.jpg')}
                     alt="Verified Snack Reviewer"
                     width={240}
                     height={240}
