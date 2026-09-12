@@ -1,0 +1,288 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* shadcn structural tokens (kept for ui/ components) */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.7% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.625rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 220 13% 91.2%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* ---- Pringles Wavy structural palette ---- */
+    --ivory: #F7F2E7;
+    --ink: #191919;
+    --gray: #6F6F6F;
+    --gray-soft: #A8A39A;
+    --brand-orange: #F5841F;
+    --brand-amber: #FFC61A;
+    --cta-brown: #6B3A17;
+    --band-green: #0B5B4C;
+    --red: #D92B2B;
+    --white: #FFFFFF;
+    --hairline: #E7E0D2;
+
+    /* ---- Shadows ---- */
+    --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.08);
+    --shadow-lift: 0 10px 30px rgba(0, 0, 0, 0.12);
+    --shadow-hover: 0 16px 40px rgba(0, 0, 0, 0.16);
+
+    /* ---- Flavor theme tokens (default = jalapeno; GSAP-tweened) ---- */
+    --flavor-main: #1F8A46;
+    --flavor-deep: #0B5B4C;
+    --flavor-deep-2: #1F6B57;
+    --flavor-soft: #E3F1E5;
+    --flavor-circle-a: #F5841F;
+    --flavor-circle-b: #FFC61A;
+    --flavor-cta: #6B3A17;
+    --flavor-cta-hover: #8A4C1F;
+    --flavor-glow: rgba(31, 138, 70, 0.35);
+  }
+
+  /* Flavor palettes applied via data-flavor attribute (SSR/first-paint safety;
+     runtime switches tween these same vars via the GSAP master timeline). */
+  :root[data-flavor='jalapeno'] {
+    --flavor-main: #1F8A46;
+    --flavor-deep: #0B5B4C;
+    --flavor-deep-2: #1F6B57;
+    --flavor-soft: #E3F1E5;
+    --flavor-circle-a: #F5841F;
+    --flavor-circle-b: #FFC61A;
+    --flavor-cta: #6B3A17;
+    --flavor-cta-hover: #8A4C1F;
+    --flavor-glow: rgba(31, 138, 70, 0.35);
+  }
+  :root[data-flavor='original'] {
+    --flavor-main: #F2B705;
+    --flavor-deep: #8A6400;
+    --flavor-deep-2: #B8900A;
+    --flavor-soft: #FFF3C4;
+    --flavor-circle-a: #FFC61A;
+    --flavor-circle-b: #FFE37E;
+    --flavor-cta: #7A5C00;
+    --flavor-cta-hover: #9C7400;
+    --flavor-glow: rgba(242, 183, 5, 0.35);
+  }
+  :root[data-flavor='sourcream'] {
+    --flavor-main: #2F7FC4;
+    --flavor-deep: #123F63;
+    --flavor-deep-2: #1E5C8C;
+    --flavor-soft: #DCEBF7;
+    --flavor-circle-a: #2F7FC4;
+    --flavor-circle-b: #7FB2E3;
+    --flavor-cta: #1D3A52;
+    --flavor-cta-hover: #2A5478;
+    --flavor-glow: rgba(47, 127, 196, 0.35);
+  }
+  :root[data-flavor='bbq'] {
+    --flavor-main: #C8321E;
+    --flavor-deep: #6E1508;
+    --flavor-deep-2: #8F2410;
+    --flavor-soft: #F9E0DA;
+    --flavor-circle-a: #D92B2B;
+    --flavor-circle-b: #F5841F;
+    --flavor-cta: #571C0E;
+    --flavor-cta-hover: #732512;
+    --flavor-glow: rgba(200, 50, 30, 0.35);
+  }
+  :root[data-flavor='cheddar'] {
+    --flavor-main: #F5841F;
+    --flavor-deep: #8F4A08;
+    --flavor-deep-2: #B86410;
+    --flavor-soft: #FDEBD7;
+    --flavor-circle-a: #F5841F;
+    --flavor-circle-b: #FFC61A;
+    --flavor-cta: #6B3A17;
+    --flavor-cta-hover: #8A4C1F;
+    --flavor-glow: rgba(245, 132, 31, 0.35);
+  }
+  :root[data-flavor='pizza'] {
+    --flavor-main: #7B3FA0;
+    --flavor-deep: #3D1C56;
+    --flavor-deep-2: #5A2E7E;
+    --flavor-soft: #EBDDF5;
+    --flavor-circle-a: #7B3FA0;
+    --flavor-circle-b: #B07ED4;
+    --flavor-cta: #4A2358;
+    --flavor-cta-hover: #61317A;
+    --flavor-glow: rgba(123, 63, 160, 0.35);
+  }
+  :root[data-flavor='steak'] {
+    --flavor-main: #8B5A2B;
+    --flavor-deep: #3E2410;
+    --flavor-deep-2: #5C3A1A;
+    --flavor-soft: #EDE0D2;
+    --flavor-circle-a: #8B5A2B;
+    --flavor-circle-b: #C98F4E;
+    --flavor-cta: #4A2C12;
+    --flavor-cta-hover: #5F3B1B;
+    --flavor-glow: rgba(139, 90, 43, 0.35);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: auto; /* Lenis owns smooth scrolling */
+  }
+
+  body {
+    @apply text-foreground;
+    background-color: var(--ivory);
+    background-image: radial-gradient(
+      1200px 800px at 18% 8%,
+      rgba(255, 255, 255, 0.9),
+      transparent 60%
+    );
+    background-attachment: fixed;
+    font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--flavor-main);
+    color: var(--white);
+  }
+
+  /* Focus indicators */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  [role='option']:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid var(--flavor-main);
+    outline-offset: 3px;
+  }
+
+  /* Flavor selector listbox: the wrapper is focused programmatically on
+     pointer-down to arm â†/â†’ keyboard operation. UA focus heuristics are NOT
+     trustworthy here â€” Safari/macOS matches :focus-visible for scripted
+     focus even after a mouse click â€” so the UA outline is suppressed
+     unconditionally and the keyboard ring is painted manually via
+     [data-kb-focus], which is only set when focus arrives via keyboard
+     (what-input modality tracking, see src/lib/inputModality.ts). */
+  [data-scene='selector']:focus,
+  [data-scene='selector']:focus-visible {
+    outline: none !important;
+  }
+  [data-scene='selector'][data-kb-focus] {
+    box-shadow: 0 0 0 2px var(--flavor-main);
+  }
+
+  /* Once the user has picked a flavor from the wheel, the "Try" hand is
+     gone for good â€” latched with !important so no entrance tween replay
+     (inline styles) can bring it back. */
+  [data-band='hand'][data-hand-dismissed] {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  .font-body {
+    font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+  }
+  .font-signature {
+    font-family: 'Caveat', cursive;
+  }
+  .text-ivory { color: var(--ivory); }
+  .text-ink { color: var(--ink); }
+  .text-gray-wavy { color: var(--gray); }
+  .bg-ivory { background-color: var(--ivory); }
+
+  /* Idle motion language */
+  .animate-wavy-spin { animation: wavy-spin 90s linear infinite; }
+  .animate-wavy-float { animation: wavy-float 6s ease-in-out infinite; }
+  .animate-wavy-bob { animation: wavy-bob 2.4s ease-in-out infinite; }
+  .animate-copy-in { animation: wavy-copy-in 0.45s ease-out both; }
+
+  /* Chili doodle idle sway â€” Â±4Â°, 6s, offset phases */
+  .animate-chili-sway g {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: wavy-sway 6s ease-in-out infinite;
+  }
+  .animate-chili-sway g:nth-of-type(2) { animation-delay: -2s; }
+  .animate-chili-sway g:nth-of-type(3) { animation-delay: -4s; }
+
+  /* Feature icon strokes redraw on item hover â€”
+     icons carry pathLength="1" so 1px == full stroke length */
+  .feature-icon path {
+    stroke-dasharray: 1px;
+    stroke-dashoffset: 0;
+  }
+  .group:hover .feature-icon path {
+    animation: wavy-icon-draw 0.5s ease-out;
+  }
+}
+
+@keyframes wavy-spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes wavy-float {
+  0%, 100% { transform: translateY(-8px); }
+  50% { transform: translateY(8px); }
+}
+@keyframes wavy-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+@keyframes wavy-copy-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes wavy-sway {
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(4deg); }
+}
+
+@keyframes wavy-icon-draw {
+  from { stroke-dashoffset: 1px; }
+  to { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
